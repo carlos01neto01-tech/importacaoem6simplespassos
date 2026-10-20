@@ -14,6 +14,152 @@
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%23090707'/%3E%3Cpath d='M11 8h17a3 3 0 0 1 3 3v21H14a3 3 0 0 1-3-3z' fill='%23bc090d'/%3E%3Cpath d='M16 15h11M16 20h11M16 25h8' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E" />
     <link rel="stylesheet" href="style.css" />
     <title>Importação em 6 Simples Passos | Cleber Boaventura</title>
+    <style>
+      /* Terceira seção: conteúdo e cartões da referência enviada. */
+      .curriculum {
+        --curriculum-red: #ed1018;
+        background: #d8d8d8;
+        color: #111;
+        padding: clamp(5rem, 9vw, 8rem) 1.5rem clamp(5rem, 9vw, 8rem);
+      }
+
+      .curriculum,
+      .curriculum * {
+        box-sizing: border-box;
+      }
+
+      .curriculum__content {
+        width: min(100%, 1120px);
+        margin-inline: auto;
+        text-align: center;
+      }
+
+      .curriculum__title {
+        max-width: 1080px;
+        margin: 0 auto;
+        color: #111;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(2.25rem, 4.5vw, 3.45rem);
+        font-weight: 400;
+        line-height: 1.08;
+        text-wrap: balance;
+      }
+
+      .curriculum__intro {
+        max-width: 1040px;
+        margin: 1rem auto 0;
+        color: #3b3838;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(1.2rem, 2.1vw, 1.8rem);
+        line-height: 1.16;
+        text-wrap: pretty;
+      }
+
+      .service-list {
+        display: grid;
+        gap: clamp(4.5rem, 6vw, 4.75rem);
+        margin-top: clamp(6.5rem, 9vw, 7.5rem);
+      }
+
+      .curriculum .service-card {
+        position: relative;
+        display: flex;
+        min-height: 294px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 5rem clamp(1rem, 4vw, 3rem) 2.25rem;
+        border: 2px solid var(--curriculum-red);
+        border-radius: 28px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(70, 55, 55, 0.14));
+        box-shadow: 0 3px 4px rgba(0, 0, 0, 0.24);
+        color: #111;
+        text-align: center;
+      }
+
+      .service-card__icon {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        display: grid;
+        width: 120px;
+        aspect-ratio: 1;
+        place-items: center;
+        border-radius: 50%;
+        background: linear-gradient(180deg, #ff1119 0%, #c90008 100%);
+        transform: translate(-50%, -56%);
+      }
+
+      .service-card__icon img {
+        display: block;
+        width: 68%;
+        height: 68%;
+        object-fit: contain;
+      }
+
+      .curriculum .service-card h3 {
+        margin: 0;
+        color: #080808;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(2rem, 4.6vw, 3.6rem);
+        font-weight: 400;
+        line-height: 1.08;
+        text-transform: uppercase;
+        text-wrap: balance;
+      }
+
+      .curriculum .service-card p {
+        max-width: 980px;
+        margin: 1rem auto 0;
+        color: #171515;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(1.2rem, 2.25vw, 1.85rem);
+        line-height: 1.28;
+        text-wrap: pretty;
+      }
+
+      @media (max-width: 640px) {
+        .curriculum {
+          padding: 4.5rem 1rem 5rem;
+        }
+
+        .curriculum__title {
+          font-size: clamp(2rem, 8vw, 2.65rem);
+        }
+
+        .curriculum__intro {
+          margin-top: 1rem;
+          font-size: 1.15rem;
+          line-height: 1.3;
+        }
+
+        .service-list {
+          gap: 4rem;
+          margin-top: 5.5rem;
+        }
+
+        .curriculum .service-card {
+          min-height: 245px;
+          padding: 4.1rem 1rem 1.75rem;
+          border-radius: 22px;
+        }
+
+        .service-card__icon {
+          width: 92px;
+        }
+
+        .curriculum .service-card h3 {
+          font-size: clamp(1.65rem, 7vw, 2.3rem);
+        }
+
+        .curriculum .service-card p {
+          margin-top: 0.8rem;
+          font-size: 1.08rem;
+          line-height: 1.35;
+        }
+      }
+    </style>
   </head>
   <body>
     <main id="topo">
@@ -71,6 +217,67 @@
         </div>
       </section>
 
+      <section class="curriculum" id="o-que-voce-vai-aprender" aria-labelledby="curriculum-title">
+        <div class="curriculum__content">
+          <h2 id="curriculum-title" class="curriculum__title reveal">
+            Importar da China envolve mais do que encontrar um preço baixo.
+          </h2>
+
+          <p class="curriculum__intro reveal">
+            É preciso saber o que observar nos fornecedores, como conduzir negociações
+            e como estruturar a operação. Neste livro, Cleber Boaventura apresenta esses
+            temas para quem quer comprar direto da China e pensar a importação como uma
+            estratégia para o negócio.
+          </p>
+
+          <div class="service-list">
+            <article class="service-card reveal" style="--delay: 0ms">
+              <div class="service-card__icon" aria-hidden="true">
+                <img src="assets/agreement.png" alt="" />
+              </div>
+              <h3>Fornecedores confiáveis</h3>
+              <p>
+                Entenda como buscar fornecedores na China e o que observar para evitar
+                armadilhas.
+              </p>
+            </article>
+
+            <article class="service-card reveal" style="--delay: 150ms">
+              <div class="service-card__icon" aria-hidden="true">
+                <img src="assets/negotiation.png" alt="" />
+              </div>
+              <h3>Negociação</h3>
+              <p>
+                Conheça pontos importantes das negociações com fornecedores e da compra
+                direto da origem.
+              </p>
+            </article>
+
+            <article class="service-card reveal" style="--delay: 300ms">
+              <div class="service-card__icon" aria-hidden="true">
+                <img src="assets/blockchain.png" alt="" />
+              </div>
+              <h3>Estrutura da operação</h3>
+              <p>
+                Veja como organizar o processo de importação com mais planejamento e
+                previsibilidade.
+              </p>
+            </article>
+
+            <article class="service-card reveal" style="--delay: 450ms">
+              <div class="service-card__icon" aria-hidden="true">
+                <img src="assets/increase.png" alt="" />
+              </div>
+              <h3>Valor e margem</h3>
+              <p>
+                Aprenda a pensar no valor percebido dos produtos, na competitividade e
+                na margem do negócio.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <footer class="site-footer" id="comprar">
         <span class="site-footer__mark" aria-hidden="true">6</span>
         <p>Importação em 6 Simples Passos <span>·</span> Cleber Boaventura</p>
@@ -115,66 +322,3 @@
     </script>
   </body>
 </html>
-<section class="curriculum" id="o-que-voce-vai-aprender" aria-labelledby="curriculum-title">
-  <div class="curriculum__content">
-    <p class="eyebrow reveal">O que o livro ensina</p>
-
-    <h2 id="curriculum-title" class="curriculum__title reveal">
-      Importar da China envolve mais do que encontrar um
-      <span>preço baixo.</span>
-    </h2>
-
-    <p class="curriculum__intro reveal">
-      É preciso saber o que observar nos fornecedores, como conduzir negociações
-      e como estruturar a operação. Neste livro, Cleber Boaventura apresenta esses
-      temas para quem quer comprar direto da China e pensar a importação como uma
-      estratégia para o negócio.
-    </p>
-
-    <div class="service-list">
-      <article class="service-card reveal" style="--delay: 0ms">
-        <div class="service-card__icon" aria-hidden="true">
-          <img src="assets/agreement.png" alt="" />
-        </div>
-        <h3>Fornecedores confiáveis</h3>
-        <p>
-          Entenda como buscar fornecedores na China e o que observar para evitar
-          armadilhas.
-        </p>
-      </article>
-
-      <article class="service-card reveal" style="--delay: 150ms">
-        <div class="service-card__icon" aria-hidden="true">
-          <img src="assets/negotiation.png" alt="" />
-        </div>
-        <h3>Negociação</h3>
-        <p>
-          Conheça pontos importantes das negociações com fornecedores e da compra
-          direto da origem.
-        </p>
-      </article>
-
-      <article class="service-card reveal" style="--delay: 300ms">
-        <div class="service-card__icon" aria-hidden="true">
-          <img src="assets/blockchain.png" alt="" />
-        </div>
-        <h3>Estrutura da operação</h3>
-        <p>
-          Veja como organizar o processo de importação com mais planejamento e
-          previsibilidade.
-        </p>
-      </article>
-
-      <article class="service-card reveal" style="--delay: 450ms">
-        <div class="service-card__icon" aria-hidden="true">
-          <img src="assets/increase.png" alt="" />
-        </div>
-        <h3>Valor e margem</h3>
-        <p>
-          Aprenda a pensar no valor percebido dos produtos, na competitividade e
-          na margem do negócio.
-        </p>
-      </article>
-    </div>
-  </div>
-</section>
