@@ -119,6 +119,68 @@
         text-wrap: pretty;
       }
 
+      .book-marquee {
+        --marquee-red: #ed1018;
+        overflow: hidden;
+        padding-block: 1.25rem;
+        border-block: 1px solid rgba(255, 255, 255, 0.08);
+        background: #100e0e;
+        color: #f5f1f1;
+      }
+
+      .book-marquee__viewport {
+        overflow: hidden;
+      }
+
+      .book-marquee__track {
+        display: flex;
+        width: max-content;
+        animation: book-marquee-scroll 30s linear infinite;
+        will-change: transform;
+      }
+
+      .book-marquee__group {
+        display: flex;
+        flex: 0 0 auto;
+        align-items: center;
+        gap: 0;
+        margin: 0;
+        padding: 0 clamp(1.5rem, 4vw, 3.5rem);
+        list-style: none;
+      }
+
+      .book-marquee__group li {
+        display: inline-flex;
+        align-items: center;
+        padding-right: clamp(1.5rem, 3.5vw, 3rem);
+        color: inherit;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(1.1rem, 2.2vw, 1.55rem);
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        line-height: 1.2;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .book-marquee__group li::after {
+        content: "◆";
+        margin-left: clamp(1.5rem, 3.5vw, 3rem);
+        color: var(--marquee-red);
+        font-family: Arial, sans-serif;
+        font-size: 0.72em;
+      }
+
+      .book-marquee:hover .book-marquee__track {
+        animation-play-state: paused;
+      }
+
+      @keyframes book-marquee-scroll {
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
       @media (max-width: 640px) {
         .curriculum {
           padding: 4.5rem 1rem 5rem;
@@ -159,6 +221,25 @@
           line-height: 1.35;
         }
       }
+
+      @media (prefers-reduced-motion: reduce) {
+        .book-marquee__track {
+          width: 100%;
+          animation: none;
+          will-change: auto;
+        }
+
+        .book-marquee__group {
+          width: 100%;
+          flex-wrap: wrap;
+          justify-content: center;
+          padding-inline: 1rem;
+        }
+
+        .book-marquee__group[aria-hidden="true"] {
+          display: none;
+        }
+      }
     </style>
   </head>
   <body>
@@ -182,6 +263,23 @@
         <a class="scroll-cue" href="#autor" aria-label="Conheça o autor">
           <span></span>
         </a>
+      </section>
+
+      <section class="book-marquee" aria-label="Três ideias centrais do livro">
+        <div class="book-marquee__viewport">
+          <div class="book-marquee__track">
+            <ul class="book-marquee__group">
+              <li>Estratégia</li>
+              <li>Segurança</li>
+              <li>Rentabilidade</li>
+            </ul>
+            <ul class="book-marquee__group" aria-hidden="true">
+              <li>Estratégia</li>
+              <li>Segurança</li>
+              <li>Rentabilidade</li>
+            </ul>
+          </div>
+        </div>
       </section>
 
       <section class="author" id="autor" aria-labelledby="author-title">
