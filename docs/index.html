@@ -13,8 +13,12 @@
     <link rel="canonical" href="https://importacoesem6simplespassos.com.br/" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%23090707'/%3E%3Cpath d='M11 8h17a3 3 0 0 1 3 3v21H14a3 3 0 0 1-3-3z' fill='%23bc090d'/%3E%3Cpath d='M16 15h11M16 20h11M16 25h8' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet" />
     <title>Importação em 6 Simples Passos | Cleber Boaventura</title>
     <style>
+      /* Terceira seção: conteúdo e cartões da referência enviada. */
       .curriculum {
         --curriculum-red: #ed1018;
         background: #d8d8d8;
@@ -112,10 +116,67 @@
         max-width: 980px;
         margin: 1rem auto 0;
         color: #171515;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: "Montserrat", Arial, sans-serif;
         font-size: clamp(1.2rem, 2.25vw, 1.85rem);
         line-height: 1.28;
         text-wrap: pretty;
+      }
+
+      .hero__description,
+      .author__intro,
+      .curriculum__intro,
+      .audience-panel__eyebrow,
+      .audience-panel__copy,
+      .audience-panel__lead,
+      .amazon-cta__description {
+        font-family: "Montserrat", Arial, sans-serif;
+      }
+
+      .author {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        overflow: hidden;
+        background: #090707;
+        padding: clamp(4rem, 7vw, 6rem) 1.5rem;
+      }
+
+      .author__photo {
+        position: relative;
+        inset: auto;
+        flex: 0 0 auto;
+        width: min(100%, 860px);
+        height: clamp(340px, 50vw, 620px);
+        margin: 0 auto 1.25rem;
+        background-position: center 20%;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+
+      .author__shade {
+        display: none;
+      }
+
+      .author__content {
+        position: relative;
+        inset: auto;
+        width: min(100%, 1120px);
+        margin: 0 auto;
+        padding: 0;
+        text-align: center;
+      }
+
+      .author__content > .eyebrow {
+        margin: 0 auto 1rem;
+        font-family: "Montserrat", Arial, sans-serif;
+      }
+
+      .author__intro {
+        max-width: 920px;
+        margin-inline: auto;
+        line-height: 1.55;
       }
 
       .book-marquee {
@@ -236,7 +297,7 @@
       .audience-panel__eyebrow {
         margin: 0 0 clamp(2rem, 4vw, 3.5rem);
         color: #ed1118;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: "Montserrat", Arial, sans-serif;
         font-size: clamp(0.85rem, 1.8vw, 1.35rem);
         letter-spacing: 0.16em;
         line-height: 1.3;
@@ -258,7 +319,7 @@
         max-width: 1320px;
         margin: clamp(2rem, 3.6vw, 3.25rem) auto 0;
         color: #e7e3e3;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: "Montserrat", Arial, sans-serif;
         font-size: clamp(1.1rem, 2vw, 1.8rem);
         line-height: 1.4;
         text-wrap: pretty;
@@ -267,7 +328,7 @@
       .audience-panel__lead {
         margin: 0 auto clamp(2rem, 3.5vw, 3rem);
         color: #e7e3e3;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: "Montserrat", Arial, sans-serif;
         font-size: clamp(1.1rem, 2vw, 1.8rem);
         line-height: 1.3;
       }
@@ -345,7 +406,7 @@
         max-width: 700px;
         margin: clamp(1.5rem, 2.5vw, 2rem) 0 0;
         color: #e2dfdf;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: "Montserrat", Arial, sans-serif;
         font-size: clamp(1.15rem, 1.9vw, 1.7rem);
         line-height: 1.35;
       }
@@ -392,6 +453,22 @@
         height: auto;
         margin-inline: auto;
         object-fit: contain;
+      }
+
+      .amazon-cta__visual.reveal {
+        opacity: 0;
+        transform: translateY(3.5rem);
+        filter: blur(12px);
+        transition:
+          opacity 1s ease,
+          transform 1s cubic-bezier(0.2, 0.7, 0.2, 1),
+          filter 1s ease;
+      }
+
+      .amazon-cta__visual.reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
       }
 
       @keyframes audience-outline-flicker {
@@ -454,6 +531,25 @@
       }
 
       @media (max-width: 760px) {
+        .author {
+          gap: 0.5rem;
+          padding: 3.5rem 1rem 4.5rem;
+        }
+
+        .author__photo {
+          width: min(100%, 520px);
+          height: clamp(280px, 78vw, 420px);
+          margin-bottom: 1rem;
+        }
+
+        .author__content {
+          width: 100%;
+        }
+
+        .author__intro {
+          font-size: 1rem;
+        }
+
         .audience-section {
           padding: 3.5rem 1rem 4.5rem;
         }
@@ -584,6 +680,14 @@
         .audience-panel::before {
           animation: none;
           filter: drop-shadow(0 0 4px rgba(255, 23, 23, 0.45));
+        }
+
+        .amazon-cta__visual.reveal,
+        .amazon-cta__visual.reveal.is-visible {
+          opacity: 1;
+          transform: none;
+          filter: none;
+          transition: none;
         }
 
         .amazon-cta__button {
@@ -761,8 +865,8 @@
               Comprar na Amazon
             </a>
           </div>
-          <div class="amazon-cta__visual" aria-hidden="true">
-            <img src="assets/Laptop Mockup 1.png" alt="" />
+          <div class="amazon-cta__visual reveal" aria-hidden="true">
+            <img src="assets/laptop-mockup.png" alt="" />
           </div>
         </div>
       </section>
