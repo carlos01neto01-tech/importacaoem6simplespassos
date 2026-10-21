@@ -132,51 +132,16 @@
         font-family: "Montserrat", Arial, sans-serif;
       }
 
-      .author {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        overflow: hidden;
-        background: #090707;
-        padding: clamp(4rem, 7vw, 6rem) 1.5rem;
-      }
-
-      .author__photo {
-        position: relative;
-        inset: auto;
-        flex: 0 0 auto;
-        width: min(100%, 860px);
-        height: clamp(340px, 50vw, 620px);
-        margin: 0 auto 1.25rem;
-        background-position: center 20%;
-        background-repeat: no-repeat;
-        background-size: contain;
-      }
-
-      .author__shade {
-        display: none;
-      }
-
       .author__content {
-        position: relative;
-        inset: auto;
-        width: min(100%, 1120px);
-        margin: 0 auto;
-        padding: 0;
-        text-align: center;
+        padding-top: clamp(1.5rem, 3vw, 2.5rem);
       }
 
       .author__content > .eyebrow {
-        margin: 0 auto 1rem;
         font-family: "Montserrat", Arial, sans-serif;
       }
 
       .author__intro {
-        max-width: 920px;
-        margin-inline: auto;
-        line-height: 1.55;
+        font-family: "Montserrat", Arial, sans-serif;
       }
 
       .book-marquee {
@@ -435,7 +400,7 @@
 
       .amazon-cta__button:hover {
         transform: translateY(-3px);
-        box-shadow: 0 10px 34px rgba(255, 0, 0, 0.34);
+        box-shadow: 0 10px 34px rgba(255, 0, 8, 0.34);
       }
 
       .amazon-cta__button:focus-visible {
@@ -531,25 +496,6 @@
       }
 
       @media (max-width: 760px) {
-        .author {
-          gap: 0.5rem;
-          padding: 3.5rem 1rem 4.5rem;
-        }
-
-        .author__photo {
-          width: min(100%, 520px);
-          height: clamp(280px, 78vw, 420px);
-          margin-bottom: 1rem;
-        }
-
-        .author__content {
-          width: 100%;
-        }
-
-        .author__intro {
-          font-size: 1rem;
-        }
-
         .audience-section {
           padding: 3.5rem 1rem 4.5rem;
         }
@@ -877,7 +823,6 @@
         <a href="#topo" class="back-to-top" aria-label="Voltar ao início">↑</a>
       </footer>
     </main>
-
     <script>
       // Link de busca do livro na Amazon; troque pelo link direto do produto se quiser.
       const CHECKOUT_URL = 'https://www.amazon.com.br/s?k=Importa%C3%A7%C3%A3o+em+6+Simples+Passos+Cleber+Boaventura';
