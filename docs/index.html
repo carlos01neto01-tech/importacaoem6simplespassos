@@ -157,8 +157,16 @@
         --marquee-red: #fff;
         padding-block: 1.1rem;
         border-color: rgba(255, 255, 255, 0.28);
-        background: linear-gradient(100deg, #ff1015 0%, #d90008 58%, #b60006 100%);
+        background: linear-gradient(100deg, #ff1015 0%, #d90008 58%, #b90006 100%);
         color: #fff;
+      }
+
+      .book-marquee--print .book-marquee__group {
+        padding-inline: 0;
+      }
+
+      .book-marquee--print .book-marquee__group li {
+        padding-right: clamp(1.25rem, 3vw, 2.5rem);
       }
 
       .book-marquee__viewport {
@@ -404,6 +412,45 @@
         text-decoration: none;
         text-transform: uppercase;
         transition: transform 220ms ease, box-shadow 220ms ease;
+      }
+
+      .amazon-cta__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: clamp(2.5rem, 5vw, 4.75rem);
+      }
+
+      .amazon-cta__actions .amazon-cta__button {
+        flex: 1 1 240px;
+        width: auto;
+        min-width: 0;
+        margin-top: 0;
+      }
+
+      .amazon-cta__button--ebook {
+        border-color: rgba(255, 255, 255, 0.58);
+        background: rgba(255, 255, 255, 0.075);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 8px 28px rgba(255, 255, 255, 0.06);
+        -webkit-backdrop-filter: blur(14px);
+        backdrop-filter: blur(14px);
+      }
+
+      .amazon-cta__button--ebook:hover {
+        background: rgba(255, 255, 255, 0.14);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 10px 34px rgba(255, 255, 255, 0.12);
+      }
+
+      .ebook-checkout-hint {
+        margin: 0.75rem 0 0;
+        color: #d7d2d2;
+        font-family: "Montserrat", Arial, sans-serif;
+        font-size: 0.85rem;
+        line-height: 1.4;
+      }
+
+      .ebook-checkout-hint:empty {
+        display: none;
       }
 
       .amazon-cta__button:hover {
@@ -830,9 +877,15 @@
             <p class="amazon-cta__description">
               Conheça Importação em 6 Simples Passos, de Cleber Boaventura, e veja os detalhes do livro na Amazon.
             </p>
-            <a class="amazon-cta__button" href="https://www.amazon.com.br/s?k=Importa%C3%A7%C3%A3o+em+6+Simples+Passos+Cleber+Boaventura" data-checkout-link>
-              Comprar na Amazon
-            </a>
+            <div class="amazon-cta__actions">
+              <a class="amazon-cta__button" href="https://www.amazon.com.br/s?k=Importa%C3%A7%C3%A3o+em+6+Simples+Passos+Cleber+Boaventura" data-checkout-link>
+                Comprar na Amazon
+              </a>
+              <a class="amazon-cta__button amazon-cta__button--ebook" href="#comprar" data-ebook-checkout-link>
+                Baixe o e-book
+              </a>
+            </div>
+            <p class="ebook-checkout-hint" data-ebook-checkout-hint aria-live="polite"></p>
           </div>
           <div class="amazon-cta__visual reveal" aria-hidden="true">
             <img src="assets/laptop-mockup.png" alt="" />
@@ -849,8 +902,40 @@
     <script>
       // Link de busca do livro na Amazon; troque pelo link direto do produto se quiser.
       const CHECKOUT_URL = 'https://www.amazon.com.br/s?k=Importa%C3%A7%C3%A3o+em+6+Simples+Passos+Cleber+Boaventura';
+      const EBOOK_CHECKOUT_URL = '';
 
       const revealItems = document.querySelectorAll('.reveal');
+
+      const printMarqueeTrack = document.querySelector('.book-marquee--print .book-marquee__track');
+
+      if (printMarqueeTrack) {
+        const printMarqueeTemplate = printMarqueeTrack.querySelector('.book-marquee__group');
+
+        const fillPrintMarquee = () => {
+          const groupWidth = printMarqueeTemplate.getBoundingClientRect().width;
+          if (!groupWidth) return;
+
+          const groupsPerLoop = Math.max(2, Math.ceil(window.innerWidth / groupWidth) + 1);
+          const clones = document.createDocumentFragment();
+
+          for (let index = 0; index < groupsPerLoop * 2; index += 1) {
+            const group = printMarqueeTemplate.cloneNode(true);
+            if (index >= groupsPerLoop) group.setAttribute('aria-hidden', 'true');
+            else group.removeAttribute('aria-hidden');
+            clones.appendChild(group);
+          }
+
+          printMarqueeTrack.replaceChildren(clones);
+        };
+
+        fillPrintMarquee();
+
+        let marqueeResizeTimeout;
+        window.addEventListener('resize', () => {
+          window.clearTimeout(marqueeResizeTimeout);
+          marqueeResizeTimeout = window.setTimeout(fillPrintMarquee, 120);
+        });
+      }
 
       if ('IntersectionObserver' in window) {
         const revealObserver = new IntersectionObserver((entries, observer) => {
@@ -879,6 +964,22 @@
         link.addEventListener('click', (event) => {
           event.preventDefault();
           if (hint) hint.textContent = 'O link seguro de compra será ativado assim que o checkout for definido.';
+        });
+      });
+
+      document.querySelectorAll('[data-ebook-checkout-link]').forEach((link) => {
+        const hint = document.querySelector('[data-ebook-checkout-hint]');
+
+        if (EBOOK_CHECKOUT_URL) {
+          link.href = EBOOK_CHECKOUT_URL;
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+          return;
+        }
+
+        link.addEventListener('click', (event) => {
+          event.preventDefault();
+          if (hint) hint.textContent = 'O link de pagamento da Kiwify será ativado assim que você me enviar a URL.';
         });
       });
     </script>
