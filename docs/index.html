@@ -1120,9 +1120,78 @@
         }
       }
 
+      /* Faixas contínuas, com brilho desfocado e preenchimento até as bordas. */
+      .book-marquee {
+        position: relative;
+        isolation: isolate;
+        width: 100%;
+        box-shadow: 0 0 2rem rgba(237, 16, 24, 0.14);
+      }
+
+      .book-marquee::before {
+        position: absolute;
+        z-index: 0;
+        inset: 0;
+        background: linear-gradient(90deg, rgba(237, 16, 24, 0.16), rgba(255, 255, 255, 0.04) 50%, rgba(237, 16, 24, 0.16));
+        content: "";
+        pointer-events: none;
+        -webkit-backdrop-filter: blur(14px);
+        backdrop-filter: blur(14px);
+      }
+
+      .book-marquee__viewport {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 4%, #000 96%, transparent 100%);
+        mask-image: linear-gradient(90deg, transparent 0, #000 4%, #000 96%, transparent 100%);
+      }
+
+      .book-marquee__track {
+        animation-duration: var(--marquee-duration, 30s);
+        filter: drop-shadow(0 0 0.45rem rgba(255, 255, 255, 0.16));
+      }
+
+      @keyframes book-marquee-scroll {
+        to {
+          transform: translateX(var(--marquee-distance, -50%));
+        }
+      }
+
+      .author__content,
+      .author__content > .eyebrow,
+      .author__title,
+      .author__intro {
+        text-align: center;
+      }
+
+      .author__title,
+      .author__intro {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .service-list {
+        row-gap: clamp(4rem, 6vw, 5.5rem);
+      }
+
       @media (prefers-reduced-motion: reduce) {
         html {
           scroll-behavior: auto;
+        }
+
+        .book-marquee::before {
+          -webkit-backdrop-filter: none;
+          backdrop-filter: none;
+        }
+
+        .book-marquee__viewport {
+          -webkit-mask-image: none;
+          mask-image: none;
+        }
+
+        .book-marquee__track {
+          filter: none;
         }
       }
     </style>
@@ -1337,36 +1406,40 @@
 
       const revealItems = document.querySelectorAll('.reveal');
 
-      const printMarqueeTrack = document.querySelector('.book-marquee--print .book-marquee__track');
+      document.querySelectorAll('.book-marquee').forEach((marquee) => {
+        const track = marquee.querySelector('.book-marquee__track');
+        const template = track?.querySelector('.book-marquee__group');
+        if (!track || !template) return;
 
-      if (printMarqueeTrack) {
-        const printMarqueeTemplate = printMarqueeTrack.querySelector('.book-marquee__group');
-
-        const fillPrintMarquee = () => {
-          const groupWidth = printMarqueeTemplate.getBoundingClientRect().width;
+        const fillMarquee = () => {
+          // Measure an in-flow copy so every screen gets enough repeated text.
+          const measuringGroup = template.cloneNode(true);
+          track.replaceChildren(measuringGroup);
+          const groupWidth = measuringGroup.getBoundingClientRect().width;
           if (!groupWidth) return;
 
           const groupsPerLoop = Math.max(2, Math.ceil(window.innerWidth / groupWidth) + 1);
-          const clones = document.createDocumentFragment();
+          const groups = document.createDocumentFragment();
 
           for (let index = 0; index < groupsPerLoop * 2; index += 1) {
-            const group = printMarqueeTemplate.cloneNode(true);
-            if (index >= groupsPerLoop) group.setAttribute('aria-hidden', 'true');
-            else group.removeAttribute('aria-hidden');
-            clones.appendChild(group);
+            const group = template.cloneNode(true);
+            if (index === 0) group.removeAttribute('aria-hidden');
+            else group.setAttribute('aria-hidden', 'true');
+            groups.appendChild(group);
           }
 
-          printMarqueeTrack.replaceChildren(clones);
+          track.replaceChildren(groups);
+          track.style.setProperty('--marquee-distance', `-${groupWidth * groupsPerLoop}px`);
         };
 
-        fillPrintMarquee();
+        fillMarquee();
 
         let marqueeResizeTimeout;
         window.addEventListener('resize', () => {
           window.clearTimeout(marqueeResizeTimeout);
-          marqueeResizeTimeout = window.setTimeout(fillPrintMarquee, 120);
+          marqueeResizeTimeout = window.setTimeout(fillMarquee, 120);
         });
-      }
+      });
 
       if ('IntersectionObserver' in window) {
         const revealObserver = new IntersectionObserver((entries, observer) => {
