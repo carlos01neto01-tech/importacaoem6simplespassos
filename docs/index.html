@@ -752,6 +752,379 @@
           transition: none;
         }
       }
+
+      /* Tipografia e espaçamento mais confortáveis em toda a página. */
+      body {
+        font-size: 1rem;
+        line-height: 1.55;
+      }
+
+      .hero__eyebrow {
+        margin-bottom: clamp(1rem, 1.8vw, 1.5rem);
+        font-size: clamp(0.72rem, 1vw, 0.9rem);
+        letter-spacing: 0.13em;
+      }
+
+      .hero__title {
+        max-width: 18ch;
+        font-size: clamp(2.35rem, 4.2vw, 4.25rem);
+        line-height: 1.12;
+        letter-spacing: -0.025em;
+      }
+
+      .hero__title-line + .hero__title-line {
+        margin-top: 0.16em;
+      }
+
+      .hero__description {
+        max-width: 39rem;
+        margin-top: clamp(1.25rem, 2vw, 1.8rem);
+        font-size: clamp(1rem, 1.3vw, 1.18rem);
+        line-height: 1.6;
+      }
+
+      .hero__button {
+        min-height: 3.5rem;
+        margin-top: clamp(1.5rem, 2.4vw, 2.1rem);
+        padding: 0.95rem 1.4rem;
+        font-size: clamp(0.95rem, 1.2vw, 1.08rem);
+      }
+
+      .author__content {
+        padding-top: clamp(1.25rem, 2.5vw, 2rem);
+      }
+
+      .author__title {
+        max-width: 24ch;
+        font-size: clamp(1.9rem, 3.15vw, 3rem);
+        line-height: 1.16;
+      }
+
+      .author__intro {
+        max-width: 66ch;
+        margin-top: clamp(1.1rem, 2vw, 1.6rem);
+        font-size: clamp(0.96rem, 1.2vw, 1.12rem);
+        line-height: 1.65;
+      }
+
+      .stats {
+        gap: clamp(0.65rem, 1.5vw, 1.25rem);
+        margin-top: clamp(1.5rem, 2.5vw, 2.25rem);
+      }
+
+      .stat-card {
+        padding: clamp(0.85rem, 1.5vw, 1.3rem);
+      }
+
+      .stat-card__value {
+        font-size: clamp(1.25rem, 2vw, 1.9rem);
+      }
+
+      .stat-card p {
+        font-size: clamp(0.82rem, 1vw, 0.98rem);
+        line-height: 1.45;
+      }
+
+      .author__button {
+        min-height: 3.4rem;
+        margin-top: clamp(1.4rem, 2.3vw, 2rem);
+        padding: 0.9rem 1.35rem;
+        font-size: 1rem;
+      }
+
+      .curriculum {
+        padding: clamp(3.5rem, 6vw, 5.5rem) 1.5rem;
+      }
+
+      .curriculum__title {
+        max-width: 30ch;
+        font-size: clamp(1.9rem, 3.6vw, 2.8rem);
+        line-height: 1.2;
+      }
+
+      .curriculum__intro {
+        max-width: 68ch;
+        margin-top: clamp(1.25rem, 2.4vw, 1.9rem);
+        font-size: clamp(1rem, 1.45vw, 1.2rem);
+        line-height: 1.65;
+      }
+
+      .service-list {
+        gap: clamp(3rem, 4vw, 3.75rem);
+        margin-top: clamp(4rem, 6vw, 5.25rem);
+      }
+
+      .curriculum .service-card {
+        min-height: 250px;
+        padding: 4.5rem clamp(1rem, 3vw, 2.25rem) 1.75rem;
+      }
+
+      .service-card__icon {
+        width: clamp(88px, 8vw, 108px);
+      }
+
+      .curriculum .service-card h3 {
+        font-size: clamp(1.55rem, 3vw, 2.35rem);
+        line-height: 1.16;
+      }
+
+      .curriculum .service-card p {
+        max-width: 64ch;
+        margin-top: 0.8rem;
+        font-size: clamp(0.96rem, 1.2vw, 1.1rem);
+        line-height: 1.55;
+      }
+
+      .book-marquee {
+        padding-block: 0.9rem;
+      }
+
+      .book-marquee__group li {
+        font-size: clamp(0.85rem, 1.45vw, 1.15rem);
+        letter-spacing: 0.1em;
+      }
+
+      .audience-section {
+        padding: clamp(3.25rem, 6vw, 5.5rem) clamp(1rem, 3vw, 2rem);
+      }
+
+      .audience-panel {
+        padding: clamp(2.75rem, 5vw, 4.5rem) clamp(1.25rem, 4vw, 3.5rem);
+      }
+
+      .audience-panel__eyebrow {
+        margin-bottom: clamp(1.5rem, 2.7vw, 2.3rem);
+        font-size: clamp(0.75rem, 1.15vw, 1rem);
+      }
+
+      .audience-panel__title {
+        max-width: 34ch;
+        font-size: clamp(2rem, 3.8vw, 3.35rem);
+        line-height: 1.16;
+      }
+
+      .audience-panel__copy {
+        max-width: 72ch;
+        margin-top: clamp(1.5rem, 2.7vw, 2.25rem);
+        font-size: clamp(0.98rem, 1.4vw, 1.2rem);
+        line-height: 1.6;
+      }
+
+      .audience-panel__lead {
+        margin-top: clamp(1.25rem, 2vw, 1.7rem);
+        margin-bottom: 1.4rem;
+        font-size: clamp(0.98rem, 1.3vw, 1.15rem);
+        line-height: 1.5;
+      }
+
+      .audience-panel__list {
+        gap: clamp(0.7rem, 1.2vw, 1rem);
+      }
+
+      .audience-panel__list li {
+        min-height: clamp(64px, 5.2vw, 88px);
+        padding: 0.85rem clamp(3rem, 5vw, 4.5rem);
+        font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+        line-height: 1.45;
+      }
+
+      .amazon-cta {
+        padding: clamp(2.5rem, 4.5vw, 4rem) clamp(1.25rem, 4vw, 3rem);
+      }
+
+      .amazon-cta__inner {
+        gap: clamp(1.5rem, 3vw, 2.75rem);
+      }
+
+      .amazon-cta__title {
+        max-width: 18ch;
+        font-size: clamp(2.1rem, 4vw, 3.55rem);
+        line-height: 1.12;
+      }
+
+      .amazon-cta__description {
+        max-width: 56ch;
+        margin-top: clamp(1.25rem, 2vw, 1.8rem);
+        font-size: clamp(1rem, 1.3vw, 1.18rem);
+        line-height: 1.6;
+      }
+
+      .amazon-cta__actions {
+        gap: 0.85rem;
+        margin-top: clamp(1.75rem, 3vw, 2.5rem);
+      }
+
+      .amazon-cta__actions .amazon-cta__button {
+        min-height: clamp(3.7rem, 4.5vw, 4.4rem);
+        font-size: clamp(0.98rem, 1.3vw, 1.15rem);
+      }
+
+      @media (max-width: 760px) {
+        .hero__title {
+          max-width: 16ch;
+          font-size: clamp(2rem, 8.2vw, 2.7rem);
+          line-height: 1.13;
+        }
+
+        .hero__description {
+          max-width: 34ch;
+          margin-top: 1.2rem;
+          font-size: 1rem;
+          line-height: 1.55;
+        }
+
+        .author__title {
+          max-width: 22ch;
+          font-size: clamp(1.8rem, 7vw, 2.5rem);
+        }
+
+        .author__intro {
+          margin-top: 1rem;
+          font-size: 0.96rem;
+          line-height: 1.6;
+        }
+
+        .stat-card {
+          padding: 0.8rem 0.6rem;
+        }
+
+        .stat-card__value {
+          font-size: clamp(1.1rem, 5vw, 1.55rem);
+        }
+
+        .stat-card p {
+          font-size: 0.78rem;
+          line-height: 1.4;
+        }
+
+        .curriculum {
+          padding: 3.5rem 1rem 4rem;
+        }
+
+        .curriculum__title {
+          font-size: clamp(1.75rem, 7.1vw, 2.3rem);
+          line-height: 1.18;
+        }
+
+        .curriculum__intro {
+          margin-top: 1.25rem;
+          font-size: 0.98rem;
+          line-height: 1.6;
+        }
+
+        .service-list {
+          gap: 3.25rem;
+          margin-top: 4.5rem;
+        }
+
+        .curriculum .service-card {
+          min-height: 220px;
+          padding: 4rem 1rem 1.5rem;
+        }
+
+        .service-card__icon {
+          width: 86px;
+        }
+
+        .curriculum .service-card h3 {
+          font-size: clamp(1.45rem, 6vw, 1.95rem);
+        }
+
+        .curriculum .service-card p {
+          margin-top: 0.7rem;
+          font-size: 0.94rem;
+          line-height: 1.5;
+        }
+
+        .audience-section {
+          padding: 3.25rem 1rem 4rem;
+        }
+
+        .audience-panel {
+          padding: 2.5rem 1.1rem 3rem;
+        }
+
+        .audience-panel__eyebrow {
+          margin-bottom: 1.25rem;
+          font-size: 0.72rem;
+          line-height: 1.5;
+        }
+
+        .audience-panel__title {
+          font-size: clamp(1.7rem, 7.2vw, 2.25rem);
+          line-height: 1.16;
+        }
+
+        .audience-panel__copy {
+          margin-top: 1.5rem;
+          font-size: 0.94rem;
+          line-height: 1.6;
+        }
+
+        .audience-panel__lead {
+          margin-top: 1.2rem;
+          margin-bottom: 1rem;
+          font-size: 0.94rem;
+        }
+
+        .audience-panel__list {
+          gap: 0.65rem;
+        }
+
+        .audience-panel__list li {
+          min-height: 58px;
+          padding: 0.75rem 1rem 0.75rem 2rem;
+          font-size: 0.88rem;
+          line-height: 1.45;
+        }
+
+        .audience-panel__list li::before {
+          left: 0.7rem;
+        }
+
+        .amazon-cta {
+          padding: 1.25rem 0 3rem;
+        }
+
+        .amazon-cta__title {
+          font-size: clamp(1.9rem, 8vw, 2.45rem);
+          line-height: 1.14;
+        }
+
+        .amazon-cta__description {
+          margin-top: 1.1rem;
+          font-size: 0.96rem;
+          line-height: 1.55;
+        }
+
+        .amazon-cta__actions {
+          margin-top: 1.6rem;
+          gap: 0.75rem;
+        }
+
+        .amazon-cta__actions .amazon-cta__button {
+          min-height: 3.7rem;
+          padding: 0.85rem 0.9rem;
+          font-size: 0.98rem;
+          line-height: 1.3;
+        }
+      }
+
+      @media (max-width: 380px) {
+        .hero__title {
+          font-size: clamp(1.8rem, 8vw, 2.1rem);
+        }
+
+        .amazon-cta__actions .amazon-cta__button {
+          font-size: 0.9rem;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
     </style>
   </head>
   <body>
@@ -938,7 +1311,7 @@
               <a class="amazon-cta__button" href="https://www.amazon.com.br/s?k=Importa%C3%A7%C3%A3o+em+6+Simples+Passos+Cleber+Boaventura" data-checkout-link>
               Comprar livro impresso na Amazon
               </a>
-              <a class="amazon-cta__button amazon-cta__button--ebook" href="#comprar" data-ebook-checkout-link>
+              <a class="amazon-cta__button amazon-cta__button--ebook" href="https://pay.kiwify.com.br/vjJFZmx" data-ebook-checkout-link>
                 Adquirir e-book
               </a>
             </div>
@@ -960,7 +1333,7 @@
       // Link de busca da edição impressa na Amazon.
       const CHECKOUT_URL = 'https://www.amazon.com.br/s?k=Importa%C3%A7%C3%A3o+em+6+Simples+Passos+Cleber+Boaventura';
       // Página de aquisição do e-book no site oficial da editora.
-      const EBOOK_CHECKOUT_URL = 'https://editoraappris.com.br/produto/importacao-em-6-simples-passos-um-guia-completo-de-como-importar-da-china-com-altas-margens-de-lucro/';
+      const EBOOK_CHECKOUT_URL = 'https://pay.kiwify.com.br/vjJFZmx';
 
       const revealItems = document.querySelectorAll('.reveal');
 
