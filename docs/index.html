@@ -1175,6 +1175,71 @@
         row-gap: clamp(4rem, 6vw, 5.5rem);
       }
 
+      .site-footer__instagram {
+        display: grid;
+        flex: 1 0 100%;
+        grid-column: 1 / -1;
+        justify-items: center;
+        gap: 0.85rem;
+        width: 100%;
+        margin: 1.25rem auto;
+        text-align: center;
+      }
+
+      .site-footer__instagram-title {
+        margin: 0;
+        font-size: clamp(1rem, 1.5vw, 1.2rem);
+        font-weight: 600;
+      }
+
+      .site-footer__instagram-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+        width: 100%;
+      }
+
+      .site-footer__instagram-button {
+        display: inline-flex;
+        min-height: 3rem;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.25rem;
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        border-radius: 999px;
+        background: linear-gradient(100deg, #ff0c12 0%, #d00008 58%, #b60006 100%);
+        color: #fff;
+        font-size: 0.95rem;
+        font-weight: 600;
+        line-height: 1.25;
+        text-align: center;
+        text-decoration: none;
+        transition: transform 180ms ease, box-shadow 180ms ease;
+      }
+
+      .site-footer__instagram-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(205, 0, 8, 0.32);
+      }
+
+      .site-footer__instagram-button:focus-visible {
+        outline: 3px solid currentColor;
+        outline-offset: 4px;
+      }
+
+      @media (max-width: 520px) {
+        .site-footer__instagram-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .site-footer__instagram-button {
+          width: min(100%, 22rem);
+        }
+      }
+
       @media (prefers-reduced-motion: reduce) {
         html {
           scroll-behavior: auto;
@@ -1192,6 +1257,10 @@
 
         .book-marquee__track {
           filter: none;
+        }
+
+        .site-footer__instagram-button {
+          transition: none;
         }
       }
     </style>
@@ -1395,6 +1464,29 @@
       <footer class="site-footer">
         <span class="site-footer__mark" aria-hidden="true">6</span>
         <p>Importação em 6 Simples Passos <span>·</span> Cleber Boaventura</p>
+        <div class="site-footer__instagram" aria-label="Perfis no Instagram">
+          <p class="site-footer__instagram-title">Acompanhe também no Instagram</p>
+          <div class="site-footer__instagram-buttons">
+            <a
+              class="site-footer__instagram-button"
+              href="https://www.instagram.com/china_venture?vrfl=d2MzYWkyMW9tNG9j"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram China Venture, abre em uma nova aba"
+            >
+              China Venture <span aria-hidden="true">↗</span>
+            </a>
+            <a
+              class="site-footer__instagram-button"
+              href="https://www.instagram.com/cleberchinaventure?vrfl=MXJxdm0yaHR6dzA2eQ=="
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram de Cleber Boaventura, abre em uma nova aba"
+            >
+              Cleber Boaventura <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
         <a href="#topo" class="back-to-top" aria-label="Voltar ao início">↑</a>
       </footer>
     </main>
